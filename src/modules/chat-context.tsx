@@ -1,4 +1,6 @@
-import {createContext, useContext, useState} from "react";
+import {createContext, useContext, useEffect, useMemo, useState} from "react";
+
+const storageKey = 'local-chat';
 
 interface MessageContent {
   username: string;
@@ -18,10 +20,26 @@ export const ChatContext = createContext<Context>({
 });
 
 function ChatContextProvider(props: any) {
-  const [messages, setMessages] = useState([] as any[]);
+  const [messages, setMessages] = useState<MessageContent[]>([]);
 
+  useEffect(() => {
+    const localStage = localStorage.getItem(storageKey);
+    if (localStage) {
+      try {
+        let savedMessages = JSON.parse(localStage) || {};
+        setMessages(savedMessages);
+      } catch (e) {
+        //Ignore
+      }
+    }
+  }, []);
+  useEffect(() => {
+    if (messages && messages.length > 0) {
+      localStorage.setItem(storageKey, JSON.stringify(messages));
+    }
+  }, [messages]);
   const sendChat = (username: string, message: string) => {
-    setMessages(curMess => [...curMess, {username, message}])
+    setMessages(curMess => [...curMess, {username, message}]);
   };
   return (
     <ChatContext.Provider
