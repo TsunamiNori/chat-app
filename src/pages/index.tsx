@@ -53,14 +53,14 @@ export default function Home() {
               type="text"
               placeholder="Your name..."
               value={username}
-              className="p-3 rounded-md outline-none"
+              className="p-3 rounded-md outline-none username"
               onChange={(e) => setUsername(e.target.value)}
             />
             <button
               onClick={() => {
                 setChosenUsername(username);
               }}
-              className="bg-white rounded-md px-4 py-2 text-xl"
+              className="bg-white rounded-md px-4 py-2 text-xl btn-login"
             >
               Go!
             </button>
@@ -75,7 +75,7 @@ export default function Home() {
               {pagedMessages.map((msg, i) => {
                 return (
                   <div
-                    className="w-full py-1 px-2 border-b border-gray-200"
+                    className="w-full py-1 px-2 border-b border-gray-200 message-item"
                     key={i}
                   >
                     {msg.username} : {msg.message}
@@ -88,12 +88,12 @@ export default function Home() {
                 type="text"
                 placeholder="New message..."
                 value={message}
-                className="outline-none py-2 px-2 rounded-bl-md flex-1"
+                className="outline-none py-2 px-2 rounded-bl-md flex-1 message"
                 onChange={(e) => setMessage(e.target.value)}
                 onKeyUp={handleKeypress}
               />
               <div className="border-l border-gray-300 flex justify-center items-center  rounded-br-md group hover:bg-purple-500 transition-all">
-                <button className="group-hover:text-white px-3 h-full" onClick={() => sendMessage()}>
+                <button className="group-hover:text-white px-3 h-full btn-send" onClick={() => sendMessage()}>
                   Send
                 </button>
               </div>
