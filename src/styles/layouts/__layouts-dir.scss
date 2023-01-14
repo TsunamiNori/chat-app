@@ -1,0 +1,10 @@
+/*
+Unique combinations of components and base styles are imported here
+One @import per line
+Each stylesheet contains all component style overrides, and specific layout only attributes
+ */
+
+//Import Layout files
+@import "header";
+@import "footer";
+//Additional Layouts Stylesheets

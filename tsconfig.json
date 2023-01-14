@@ -13,12 +13,18 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
+    "noImplicitAny": false,
     "incremental": true,
-    "baseUrl": ".",
+    "baseUrl": "./src",
     "paths": {
-      "@/*": ["./*"]
+      "@app/*": ["*"],
+      "*": ["src/types/*.d.ts"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"],
+  "typeRoots": [
+    "./node_modules/@types/",
+    "./src/types/global.d.ts",
+  ]
 }

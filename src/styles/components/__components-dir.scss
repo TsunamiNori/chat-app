@@ -1,0 +1,18 @@
+/*
+This file is used to contain all component imports.
+Files inside this folder should contain all styles relating to a reusable component.
+*/
+/*
+Micro level reusable components are imported here
+Each component does one thing and one thing only
+Components are re-usable across the project
+Components are independent
+One @import per line
+Each stylesheet contains all component styles, variations and states
+ */
+
+//Import Component files
+@import "button";
+//@import "input";
+//@import "modal";
+/* Additonal Component Stylesheets */
