@@ -2,7 +2,7 @@ import {createContext, useContext, useEffect, useMemo, useState} from "react";
 
 const storageKey = 'local-chat';
 
-interface MessageContent {
+export interface MessageContent {
   username: string;
   message: string;
 }
@@ -31,6 +31,8 @@ function ChatContextProvider(props: any) {
       } catch (e) {
         //Ignore
       }
+    }else {
+      localStorage.setItem(storageKey, "[]");
     }
   }, []);
   useEffect(() => {
